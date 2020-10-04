@@ -1,6 +1,6 @@
 /*
-@Author: ThemeMascot
-@URL: http://ThemeMascot.com
+@Author: Digisailor
+@URL: http://Digisailor.com
 
 Necessary jQuery Collection
 */

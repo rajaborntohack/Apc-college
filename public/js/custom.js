@@ -1,4 +1,4 @@
-var THEMEMASCOT = {};
+var Digisailor = {};
 
 (function($) {
     "use strict";
@@ -21,7 +21,7 @@ var THEMEMASCOT = {};
     var $portfolio_flex_slider = $(".portfolio-slider");
 
 
-    THEMEMASCOT.isMobile = {
+    Digisailor.isMobile = {
         Android: function() {
             return navigator.userAgent.match(/Android/i);
         },
@@ -38,11 +38,11 @@ var THEMEMASCOT = {};
             return navigator.userAgent.match(/IEMobile/i);
         },
         any: function() {
-            return (THEMEMASCOT.isMobile.Android() || THEMEMASCOT.isMobile.BlackBerry() || THEMEMASCOT.isMobile.iOS() || THEMEMASCOT.isMobile.Opera() || THEMEMASCOT.isMobile.Windows());
+            return (Digisailor.isMobile.Android() || Digisailor.isMobile.BlackBerry() || Digisailor.isMobile.iOS() || Digisailor.isMobile.Opera() || Digisailor.isMobile.Windows());
         }
     };
 
-    THEMEMASCOT.isRTL = {
+    Digisailor.isRTL = {
         check: function() {
             if( $( "html" ).attr("dir") == "rtl" ) {
                 return true;
@@ -52,7 +52,7 @@ var THEMEMASCOT = {};
         }
     };
 
-    THEMEMASCOT.urlParameter = {
+    Digisailor.urlParameter = {
         get: function(sParam) {
             var sPageURL = decodeURIComponent(window.location.search.substring(1)),
                 sURLVariables = sPageURL.split('&'),
@@ -70,7 +70,7 @@ var THEMEMASCOT = {};
     };
 
 
-    THEMEMASCOT.bmiCalculator = {
+    Digisailor.bmiCalculator = {
         magic: function(bmi) {
             var output = '';
             var info = '';
@@ -116,7 +116,7 @@ var THEMEMASCOT = {};
 
             var total_height_inc = ( parseInt(height_ft, 10) * 12 ) + parseInt(height_in, 10);
             var bmi = ( parseFloat(weight_lbs) / (total_height_inc * total_height_inc) ) * 703;
-            var output = THEMEMASCOT.bmiCalculator.magic(bmi);
+            var output = Digisailor.bmiCalculator.magic(bmi);
 
             bmi_form.find('#bmi_standard_calculator_form_result').html(output).fadeIn('slow');
         },
@@ -130,7 +130,7 @@ var THEMEMASCOT = {};
             var total_weight_kg = parseFloat(weight_kg) ;
             var total_height_m = parseFloat(height_cm) * 0.01;
             var bmi = ( total_weight_kg / (total_height_m * total_height_m) );
-            var output = THEMEMASCOT.bmiCalculator.magic(bmi);
+            var output = Digisailor.bmiCalculator.magic(bmi);
 
             bmi_form.find('#bmi_metric_calculator_form_result').html(output).fadeIn('slow');
         },
@@ -139,38 +139,38 @@ var THEMEMASCOT = {};
             var bmi_Standard_Form = $('#form_bmi_standard_calculator');
             bmi_Standard_Form.on('submit', function(e) {
                 e.preventDefault();
-                THEMEMASCOT.bmiCalculator.calculateStandard(bmi_Standard_Form);
+                Digisailor.bmiCalculator.calculateStandard(bmi_Standard_Form);
                 return false;
             });
 
             var bmi_Metric_Form = $('#form_bmi_metric_calculator');
             bmi_Metric_Form.on('submit', function(e) {
                 e.preventDefault();
-                THEMEMASCOT.bmiCalculator.calculateMetric(bmi_Metric_Form);
+                Digisailor.bmiCalculator.calculateMetric(bmi_Metric_Form);
                 return false;
             });
         }
 
     };
 
-    THEMEMASCOT.initialize = {
+    Digisailor.initialize = {
 
         init: function() {
-            THEMEMASCOT.bmiCalculator.init();
-            THEMEMASCOT.initialize.TM_datePicker();
-            THEMEMASCOT.initialize.TM_ddslick();
-            THEMEMASCOT.initialize.TM_loadBSParentModal();
-            THEMEMASCOT.initialize.TM_demoSwitcher();
-            THEMEMASCOT.initialize.TM_platformDetect();
-            THEMEMASCOT.initialize.TM_onLoadModal();
-            THEMEMASCOT.initialize.TM_customDataAttributes();
-            THEMEMASCOT.initialize.TM_parallaxBgInit();
-            THEMEMASCOT.initialize.TM_resizeFullscreen();
-            THEMEMASCOT.initialize.TM_prettyPhoto_lightbox();
-            THEMEMASCOT.initialize.TM_nivolightbox();
-            THEMEMASCOT.initialize.TM_fitVids();
-            THEMEMASCOT.initialize.TM_YTPlayer();
-            THEMEMASCOT.initialize.TM_equalHeightDivs();
+            Digisailor.bmiCalculator.init();
+            Digisailor.initialize.TM_datePicker();
+            Digisailor.initialize.TM_ddslick();
+            Digisailor.initialize.TM_loadBSParentModal();
+            Digisailor.initialize.TM_demoSwitcher();
+            Digisailor.initialize.TM_platformDetect();
+            Digisailor.initialize.TM_onLoadModal();
+            Digisailor.initialize.TM_customDataAttributes();
+            Digisailor.initialize.TM_parallaxBgInit();
+            Digisailor.initialize.TM_resizeFullscreen();
+            Digisailor.initialize.TM_prettyPhoto_lightbox();
+            Digisailor.initialize.TM_nivolightbox();
+            Digisailor.initialize.TM_fitVids();
+            Digisailor.initialize.TM_YTPlayer();
+            Digisailor.initialize.TM_equalHeightDivs();
         },
 
 
@@ -268,7 +268,7 @@ var THEMEMASCOT = {};
         /* ------------------------------- Platform detect  --------------------- */
         /* ---------------------------------------------------------------------- */
         TM_platformDetect: function() {
-            if (THEMEMASCOT.isMobile.any()) {
+            if (Digisailor.isMobile.any()) {
                 $html.addClass("mobile");
             } else {
                 $html.addClass("no-mobile");
@@ -445,7 +445,7 @@ var THEMEMASCOT = {};
         /* -------------------------- Background Parallax ----------------------- */
         /* ---------------------------------------------------------------------- */
         TM_parallaxBgInit: function() {
-            if (!THEMEMASCOT.isMobile.any() && $window.width() >= 800 ) {
+            if (!Digisailor.isMobile.any() && $window.width() >= 800 ) {
                 $('.parallax').each(function() {
                     var data_parallax_ratio = ( $(this).data("parallax-ratio") === undefined ) ? '0.5': $(this).data("parallax-ratio");
                     $(this).parallax("50%", data_parallax_ratio);
@@ -602,7 +602,7 @@ var THEMEMASCOT = {};
               overflowY: 'scroll', // as we know that popup content is tall we set scroll overflow by default to avoid jump
               callbacks: {
                 parseAjax: function(mfpResponse) {
-                    THEMEMASCOT.initialize.TM_datePicker();
+                    Digisailor.initialize.TM_datePicker();
                 }
               }
             });
@@ -801,22 +801,22 @@ var THEMEMASCOT = {};
     };
 
 
-    THEMEMASCOT.header = {
+    Digisailor.header = {
 
         init: function() {
 
             var t = setTimeout(function() {
-                THEMEMASCOT.header.TM_fullscreenMenu();
-                THEMEMASCOT.header.TM_sidePanelReveal();
-                THEMEMASCOT.header.TM_scroolToTopOnClick();
-                THEMEMASCOT.header.TM_scrollToFixed();
-                THEMEMASCOT.header.TM_topnavAnimate();
-                THEMEMASCOT.header.TM_scrolltoTarget();
-                THEMEMASCOT.header.TM_menuzord();
-                THEMEMASCOT.header.TM_navLocalScorll();
-                THEMEMASCOT.header.TM_menuCollapseOnClick();
-                THEMEMASCOT.header.TM_homeParallaxFadeEffect();
-                THEMEMASCOT.header.TM_topsearch_toggle();
+                Digisailor.header.TM_fullscreenMenu();
+                Digisailor.header.TM_sidePanelReveal();
+                Digisailor.header.TM_scroolToTopOnClick();
+                Digisailor.header.TM_scrollToFixed();
+                Digisailor.header.TM_topnavAnimate();
+                Digisailor.header.TM_scrolltoTarget();
+                Digisailor.header.TM_menuzord();
+                Digisailor.header.TM_navLocalScorll();
+                Digisailor.header.TM_menuCollapseOnClick();
+                Digisailor.header.TM_homeParallaxFadeEffect();
+                Digisailor.header.TM_topsearch_toggle();
             }, 0);
 
         },
@@ -837,7 +837,7 @@ var THEMEMASCOT = {};
         TM_sidePanelReveal: function() {
             $('.side-panel-trigger').on('click', function(e) {
                 $body.toggleClass("side-panel-open");
-                if ( THEMEMASCOT.isMobile.any() ) {
+                if ( Digisailor.isMobile.any() ) {
                     $body.toggleClass("overflow-hidden");
                 }
                 return false;
@@ -1055,24 +1055,24 @@ var THEMEMASCOT = {};
 
     };
 
-    THEMEMASCOT.widget = {
+    Digisailor.widget = {
 
         init: function() {
 
             var t = setTimeout(function() {
-                THEMEMASCOT.widget.TM_shopClickEvents();
-                THEMEMASCOT.widget.TM_fcCalender();
-                THEMEMASCOT.widget.TM_verticalTimeline();
-                THEMEMASCOT.widget.TM_verticalMasonryTimeline();
-                THEMEMASCOT.widget.TM_masonryIsotop();
-                THEMEMASCOT.widget.TM_pieChart();
-                THEMEMASCOT.widget.TM_progressBar();
-                THEMEMASCOT.widget.TM_funfact();
-                THEMEMASCOT.widget.TM_instagramFeed();
-                THEMEMASCOT.widget.TM_jflickrfeed();
-                THEMEMASCOT.widget.TM_accordion_toggles();
-                THEMEMASCOT.widget.TM_tooltip();
-                //THEMEMASCOT.widget.TM_countDownTimer();
+                Digisailor.widget.TM_shopClickEvents();
+                Digisailor.widget.TM_fcCalender();
+                Digisailor.widget.TM_verticalTimeline();
+                Digisailor.widget.TM_verticalMasonryTimeline();
+                Digisailor.widget.TM_masonryIsotop();
+                Digisailor.widget.TM_pieChart();
+                Digisailor.widget.TM_progressBar();
+                Digisailor.widget.TM_funfact();
+                Digisailor.widget.TM_instagramFeed();
+                Digisailor.widget.TM_jflickrfeed();
+                Digisailor.widget.TM_accordion_toggles();
+                Digisailor.widget.TM_tooltip();
+                //Digisailor.widget.TM_countDownTimer();
             }, 0);
 
         },
@@ -1246,7 +1246,7 @@ var THEMEMASCOT = {};
                 return false;
             });
             
-            THEMEMASCOT.slider.TM_flexslider();
+            Digisailor.slider.TM_flexslider();
 
         },
 
@@ -1401,7 +1401,7 @@ var THEMEMASCOT = {};
                     template: '<div class="item"><figure><img src="{{image}}" /><a href="{{link}}" class="link-out" target="_blank"><i class="fa fa-link"></i></a></figure></div>',
                     after: function() {
                         current_div.owlCarousel({
-                            rtl: THEMEMASCOT.isRTL.check(),
+                            rtl: Digisailor.isRTL.check(),
                             autoplay: true,
                             autoplayTimeout: 4000,
                             loop: true,
@@ -1488,7 +1488,7 @@ var THEMEMASCOT = {};
                     loadingText: 'Loading!'
                 }, function() {
                     $twitter_feed_carousel.find('ul').owlCarousel({
-                        rtl: THEMEMASCOT.isRTL.check(),
+                        rtl: Digisailor.isRTL.check(),
                         autoplay: true,
                         autoplayTimeout: 2000,
                         loop: true,
@@ -1501,16 +1501,16 @@ var THEMEMASCOT = {};
         }
     };
 
-    THEMEMASCOT.slider = {
+    Digisailor.slider = {
 
         init: function() {
 
             var t = setTimeout(function() {
-                THEMEMASCOT.slider.TM_typedAnimation();
-                THEMEMASCOT.slider.TM_flexslider();
-                THEMEMASCOT.slider.TM_owlCarousel();
-                THEMEMASCOT.slider.TM_maximageSlider();
-                THEMEMASCOT.slider.TM_bxslider();
+                Digisailor.slider.TM_typedAnimation();
+                Digisailor.slider.TM_flexslider();
+                Digisailor.slider.TM_owlCarousel();
+                Digisailor.slider.TM_maximageSlider();
+                Digisailor.slider.TM_bxslider();
             }, 0);
 
         },
@@ -1559,14 +1559,14 @@ var THEMEMASCOT = {};
         /* ---------------------------------------------------------------------- */
         TM_flexslider: function() {
             var $each_flex_slider = $('.flexslider-wrapper').find('.flexslider');
-            THEMEMASCOT.widget.TM_portfolioFlexSliderGalleryPopUpInit();
+            Digisailor.widget.TM_portfolioFlexSliderGalleryPopUpInit();
             $each_flex_slider.each(function() {
                 var $flex_slider = $(this);
                 var data_direction = ( $flex_slider.parent().data("direction") === undefined ) ? 'horizontal': $flex_slider.parent().data("direction");
                 var data_controlNav = ( $flex_slider.parent().data("controlnav") === undefined ) ? true: $flex_slider.parent().data("controlnav");
                 var data_directionnav = ( $flex_slider.parent().data("directionnav") === undefined ) ? true: $flex_slider.parent().data("directionnav");
                 $flex_slider.flexslider({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     selector: ".slides > li",
                     animation: "slide",
                     easing: "swing",
@@ -1583,9 +1583,9 @@ var THEMEMASCOT = {};
                                 $portfolio_filter_first_child.trigger("click");
                             },500);
                         });
-                        THEMEMASCOT.initialize.TM_magnificPopup_lightbox();
-                        THEMEMASCOT.initialize.TM_prettyPhoto_lightbox();
-                        THEMEMASCOT.initialize.TM_nivolightbox();
+                        Digisailor.initialize.TM_magnificPopup_lightbox();
+                        Digisailor.initialize.TM_prettyPhoto_lightbox();
+                        Digisailor.initialize.TM_nivolightbox();
                     },
                     after: function(){
                     }
@@ -1602,7 +1602,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav") === undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1621,7 +1621,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav")=== undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1668,7 +1668,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav")=== undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1716,7 +1716,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav")=== undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1763,7 +1763,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav")=== undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1810,7 +1810,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav")=== undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1857,7 +1857,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav")=== undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1900,7 +1900,7 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav")=== undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    rtl: Digisailor.isRTL.check(),
                     autoplay: true,
                     autoplayTimeout: data_duration,
                     loop: true,
@@ -1979,26 +1979,26 @@ var THEMEMASCOT = {};
     /* ---------- document ready, window load, scroll and resize ------------ */
     /* ---------------------------------------------------------------------- */
     //document ready
-    THEMEMASCOT.documentOnReady = {
+    Digisailor.documentOnReady = {
         init: function() {
-            THEMEMASCOT.initialize.init();
-            THEMEMASCOT.header.init();
-            THEMEMASCOT.slider.init();
-            THEMEMASCOT.widget.init();
-            THEMEMASCOT.windowOnscroll.init();
+            Digisailor.initialize.init();
+            Digisailor.header.init();
+            Digisailor.slider.init();
+            Digisailor.widget.init();
+            Digisailor.windowOnscroll.init();
         }
     };
 
     //window on load
-    THEMEMASCOT.windowOnLoad = {
+    Digisailor.windowOnLoad = {
         init: function() {
             var t = setTimeout(function() {
-                THEMEMASCOT.initialize.TM_wow();
-                THEMEMASCOT.widget.TM_twittie();
-                THEMEMASCOT.initialize.TM_magnificPopup_lightbox();
-                THEMEMASCOT.initialize.TM_preLoaderOnLoad();
-                THEMEMASCOT.initialize.TM_hashForwarding();
-                THEMEMASCOT.initialize.TM_parallaxBgInit();
+                Digisailor.initialize.TM_wow();
+                Digisailor.widget.TM_twittie();
+                Digisailor.initialize.TM_magnificPopup_lightbox();
+                Digisailor.initialize.TM_preLoaderOnLoad();
+                Digisailor.initialize.TM_hashForwarding();
+                Digisailor.initialize.TM_parallaxBgInit();
             }, 0);
             $window.trigger("scroll");
             $window.trigger("resize");
@@ -2006,22 +2006,22 @@ var THEMEMASCOT = {};
     };
 
     //window on scroll
-    THEMEMASCOT.windowOnscroll = {
+    Digisailor.windowOnscroll = {
         init: function() {
             $window.on( 'scroll', function(){
-                THEMEMASCOT.header.TM_scroolToTop();
-                THEMEMASCOT.header.TM_activateMenuItemOnReach();
-                THEMEMASCOT.header.TM_topnavAnimate();
+                Digisailor.header.TM_scroolToTop();
+                Digisailor.header.TM_activateMenuItemOnReach();
+                Digisailor.header.TM_topnavAnimate();
             });
         }
     };
 
     //window on resize
-    THEMEMASCOT.windowOnResize = {
+    Digisailor.windowOnResize = {
         init: function() {
             var t = setTimeout(function() {
-                THEMEMASCOT.initialize.TM_equalHeightDivs();
-                THEMEMASCOT.initialize.TM_resizeFullscreen();
+                Digisailor.initialize.TM_equalHeightDivs();
+                Digisailor.initialize.TM_resizeFullscreen();
             }, 400);
         }
     };
@@ -2031,16 +2031,16 @@ var THEMEMASCOT = {};
     /* ---------------------------- Call Functions -------------------------- */
     /* ---------------------------------------------------------------------- */
     $document.ready(
-        THEMEMASCOT.documentOnReady.init
+        Digisailor.documentOnReady.init
     );
     $window.on('load',
-        THEMEMASCOT.windowOnLoad.init
+        Digisailor.windowOnLoad.init
     );
     $window.on('resize', 
-        THEMEMASCOT.windowOnResize.init
+        Digisailor.windowOnResize.init
     );
 
     //call function before document ready
-    THEMEMASCOT.initialize.TM_preLoaderClickDisable();
+    Digisailor.initialize.TM_preLoaderClickDisable();
 
 })(jQuery);

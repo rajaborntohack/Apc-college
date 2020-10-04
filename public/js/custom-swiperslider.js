@@ -2,13 +2,13 @@
   "use strict";
   
   $(document).ready(function() {
-	  thememascot_swiper_slider_init();
+	  Digisailor_swiper_slider_init();
   });  
   
   /* ---------------------------------------------------------------------- */
   /* ----------------------------- Revolution Slider -----------------------*/
   /* ---------------------------------------------------------------------- */
-  function thememascot_swiper_slider_init() {
+  function Digisailor_swiper_slider_init() {
 	//swiper photo gallery with thumbnail
     var photogalleryTop = new Swiper('.swiper-photogallery-top', {
         nextButton: '.swiper-button-next',

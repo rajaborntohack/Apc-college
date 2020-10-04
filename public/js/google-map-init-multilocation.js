@@ -52,7 +52,7 @@ function initialize() {
         mapTypeControl: true,
         streetViewControl: true,
         overviewMapControl: true,
-        styles: THEMEMASCOT_googlemap_styles[map_style ? map_style : 'default'],
+        styles: Digisailor_googlemap_styles[map_style ? map_style : 'default'],
         mapTypeId: 'roadmap'
     };
                     
@@ -94,10 +94,10 @@ function initialize() {
     
 }
 
-var THEMEMASCOT_googlemap_init_obj = {};
-var THEMEMASCOT_GEOCODE_ERROR = "Error";
+var Digisailor_googlemap_init_obj = {};
+var Digisailor_GEOCODE_ERROR = "Error";
 // Google map Styles
-var THEMEMASCOT_googlemap_styles = {
+var Digisailor_googlemap_styles = {
     'default': [],
     'style1':  [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#eeeeee"}]},{"featureType":"landscape.natural.landcover","elementType":"geometry.fill","stylers":[{"color":"#dddddd"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry.fill","stylers":[{"color":"#dddddd"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#f55e45"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#979797"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"weight":"0.01"}]}],
                             
